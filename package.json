@@ -16,7 +16,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint src",
+    "depcruise": "depcruise --no-progress -c .dependency-cruiser.cjs src"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
@@ -26,14 +27,19 @@
     "fastify-plugin": "^5.0.1",
     "pg": "^8.13.1",
     "pino": "^9.5.0",
+    "stripe": "^22.2.1",
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^20.17.10",
     "@types/pg": "^8.11.10",
+    "dependency-cruiser": "^17.4.3",
+    "eslint": "^10.5.0",
     "pino-pretty": "^13.0.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
+    "typescript-eslint": "^8.61.1",
     "vitest": "^2.1.8"
   }
 }

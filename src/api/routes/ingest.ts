@@ -2,20 +2,23 @@ import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 import { UnknownSourceError } from '../../errors/domain-errors.js';
 import { ingestMock } from '../../sources/mock/ingest.js';
+import { ingestStripe } from '../../sources/stripe/ingest.js';
 import { authPlugin } from '../plugins/auth.js';
 import type { IngestResult } from '../../sources/types.js';
 
-const KNOWN_SOURCES = ['mock'] as const;
+const KNOWN_SOURCES = ['mock', 'stripe'] as const;
 type KnownSource = (typeof KNOWN_SOURCES)[number];
 
 const SourceParamSchema = z.object({
-  source: z.enum(['mock']),
+  source: z.enum(['mock', 'stripe']),
 });
 
 async function runIngestFor(source: KnownSource): Promise<IngestResult> {
   switch (source) {
     case 'mock':
       return ingestMock();
+    case 'stripe':
+      return ingestStripe();
     default: {
       const _exhaustive: never = source;
       throw new UnknownSourceError(_exhaustive);
