@@ -1,0 +1,32 @@
+# Render Blueprint for revenue-metric.
+# Cron jobs (for scheduled ingest + Supabase keep-alive) require a paid
+# plan; this Blueprint provisions only the web service.
+services:
+  - type: web
+    name: revenue-metric-api
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm ci && npm run build && npm run migrate:prod
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: info
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_URL_DIRECT
+        sync: false
+      - key: API_SECRET
+        generateValue: true
+      - key: STRIPE_TEST_KEY
+        sync: false
+      - key: INGEST_START_DATE
+        value: "2024-01-01"
+
+# Scheduled ingest is configured externally on cron-job.org (free) or
+# requires a Render paid plan. See ../docs/plans/plan-revenue-metric.md
+# § Open Questions. Manual trigger via POST /ingest/all works for demos.
