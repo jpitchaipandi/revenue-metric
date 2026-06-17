@@ -1,6 +1,8 @@
 import Fastify, { type FastifyInstance } from 'fastify';
 import { logger } from '../config/logger.js';
 import { healthRoutes } from './routes/health.js';
+import { metricsRoutes } from './routes/metrics.js';
+import { ingestRoutes } from './routes/ingest.js';
 import { installErrorHandler } from './plugins/error-handler.js';
 
 export async function buildApp(): Promise<FastifyInstance> {
@@ -17,6 +19,8 @@ export async function buildApp(): Promise<FastifyInstance> {
   installErrorHandler(app);
 
   await app.register(healthRoutes);
+  await app.register(metricsRoutes);
+  await app.register(ingestRoutes); // auth is encapsulated inside this plugin
 
   return app;
 }

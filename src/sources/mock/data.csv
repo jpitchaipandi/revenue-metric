@@ -1,0 +1,13 @@
+id,amount_cents,currency,status,occurred_at,description
+mock_001,12500,USD,paid,2024-01-15T10:00:00Z,Monthly subscription
+mock_002,45000,USD,paid,2024-02-03T14:30:00Z,Annual plan upgrade
+mock_003,7500,USD,invoice_paid,2024-02-20T09:15:00Z,Add-on seat
+mock_004,30000,USD,completed,2024-03-10T16:45:00Z,One-time consulting
+mock_005,18000,USD,invoice_paid,2024-04-05T11:22:00Z,Q2 retainer
+mock_006,9900,USD,pending,2024-04-18T08:00:00Z,Pending wire transfer
+mock_007,12500,USD,refunded,2024-05-02T13:00:00Z,Refund of mock_001
+mock_008,5500,USD,invoice_void,2024-05-15T17:00:00Z,Cancelled before charge
+mock_009,22000,USD,failed,2024-06-01T12:00:00Z,Card declined
+mock_010,15000,USD,invoice_disputed,2024-06-20T10:30:00Z,Chargeback opened
+mock_011,8800,USD,settled_with_fee,2024-07-04T09:45:00Z,Unknown status — exercises UNKNOWN path
+mock_012,33000,USD,paid,2024-08-12T15:30:00Z,Renewal
