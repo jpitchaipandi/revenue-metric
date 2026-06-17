@@ -9,10 +9,11 @@ This project was built with Claude (Anthropic, Opus 4.7, 1M context) for both pl
 
 All architectural decisions, library choices, and deployment configuration were reviewed and approved by the developer before commits. Claude presented options with trade-offs at each design decision (concurrency model, source choice, auth boundaries, test isolation strategy); the developer made the calls.
 
-## Conversation transcript
+## How the conversation happened
 
-A narrative log of the dialogue — questions, trade-offs discussed, and decisions made (without code or terminal output) — lives at [`docs/ai-conversation.md`](docs/ai-conversation.md).
+This project was built via **Claude Code CLI** — the terminal-based agentic coding environment from Anthropic, not the claude.ai web interface. As a result there isn't a single "share link" the way a claude.ai chat would produce; the equivalent is the local session transcript that the CLI captures.
 
-The implementation-level build diary (with concrete bugs, fixes, and verification outputs) is kept privately outside this repo for the developer's reference. Same pattern as Project 1 (`sync-pipeline`).
+What's available in this repo:
 
-The original Claude chat share link will be added here on final submission.
+- **[`docs/ai-conversation.md`](docs/ai-conversation.md)** — curated narrative log: the questions, trade-offs discussed, decisions made, and bugs caught across all four implementation phases. Code, commands, and terminal output stripped out so it reads as a design story.
+- **[`docs/raw-conversation.md`](docs/raw-conversation.md)** — the full, unfiltered Claude Code CLI session transcript, exported via the `/export` command. 2,692 lines, ~110 KB. Read this if you want the literal log of how the developer directed and reviewed AI output throughout the build.
