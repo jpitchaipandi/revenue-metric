@@ -15,6 +15,7 @@
     "migrate:prod": "node dist/db/migrate.js",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
     "depcruise": "depcruise --no-progress -c .dependency-cruiser.cjs src"
